@@ -11,6 +11,10 @@
 		443048021EFE547F00C924D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443048011EFE547F00C924D9 /* ViewController.swift */; };
 		443048071EFE547F00C924D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 443048061EFE547F00C924D9 /* Assets.xcassets */; };
 		4430480A1EFE547F00C924D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 443048081EFE547F00C924D9 /* LaunchScreen.storyboard */; };
+		443048131EFE5ACD00C924D9 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443048121EFE5ACD00C924D9 /* WeatherService.swift */; };
+		443048161EFE5B2A00C924D9 /* WeatherForcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443048151EFE5B2A00C924D9 /* WeatherForcast.swift */; };
+		443048181EFE5DC800C924D9 /* DarkSkyWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443048171EFE5DC800C924D9 /* DarkSkyWeatherService.swift */; };
+		4430481A1EFE621000C924D9 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443048191EFE621000C924D9 /* ServiceError.swift */; };
 		6C59F3D51464C8075E897F3E /* Pods_WeatherCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1789C516F7F69D4FC072DD0D /* Pods_WeatherCloud.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +27,10 @@
 		443048061EFE547F00C924D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		443048091EFE547F00C924D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4430480B1EFE547F00C924D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		443048121EFE5ACD00C924D9 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		443048151EFE5B2A00C924D9 /* WeatherForcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForcast.swift; sourceTree = "<group>"; };
+		443048171EFE5DC800C924D9 /* DarkSkyWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyWeatherService.swift; sourceTree = "<group>"; };
+		443048191EFE621000C924D9 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		6619DFA76439AF5BF4102718 /* Pods-WeatherCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherCloud/Pods-WeatherCloud.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +75,8 @@
 		443047FE1EFE547F00C924D9 /* WeatherCloud */ = {
 			isa = PBXGroup;
 			children = (
+				443048141EFE5B1200C924D9 /* Models */,
+				443048111EFE5A9100C924D9 /* Services */,
 				443047FF1EFE547F00C924D9 /* AppDelegate.swift */,
 				443048011EFE547F00C924D9 /* ViewController.swift */,
 				443048061EFE547F00C924D9 /* Assets.xcassets */,
@@ -74,6 +84,24 @@
 				4430480B1EFE547F00C924D9 /* Info.plist */,
 			);
 			path = WeatherCloud;
+			sourceTree = "<group>";
+		};
+		443048111EFE5A9100C924D9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				443048121EFE5ACD00C924D9 /* WeatherService.swift */,
+				443048171EFE5DC800C924D9 /* DarkSkyWeatherService.swift */,
+				443048191EFE621000C924D9 /* ServiceError.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		443048141EFE5B1200C924D9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				443048151EFE5B2A00C924D9 /* WeatherForcast.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E41E03A7E4132E9B184CB2CA /* Pods */ = {
@@ -206,7 +234,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4430481A1EFE621000C924D9 /* ServiceError.swift in Sources */,
 				443048021EFE547F00C924D9 /* ViewController.swift in Sources */,
+				443048161EFE5B2A00C924D9 /* WeatherForcast.swift in Sources */,
+				443048131EFE5ACD00C924D9 /* WeatherService.swift in Sources */,
+				443048181EFE5DC800C924D9 /* DarkSkyWeatherService.swift in Sources */,
 				443048001EFE547F00C924D9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

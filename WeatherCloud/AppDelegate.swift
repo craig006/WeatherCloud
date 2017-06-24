@@ -4,8 +4,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -13,6 +12,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller = UIViewController()
         window?.rootViewController = controller;
         window?.makeKeyAndVisible()
+        
+        let service = DarkSkyWeatherService()
+        
+        service.getWeather(completion: { (weather) in
+            print(weather)
+            print(weather.latitude)
+            print(weather.longitude)
+        })
         
         return true
     }
