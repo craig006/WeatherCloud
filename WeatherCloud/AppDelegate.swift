@@ -1,4 +1,5 @@
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -7,21 +8,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        application.setMinimumBackgroundFetchInterval(1200)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if !granted {
+                print("push notifications not granted")
+            }
+            
+            if let error = error {
+                print(error)
+            }
+        }
+        
+        UNUserNotificationCenter.current
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         let controller = UIViewController()
         window?.rootViewController = controller;
         window?.makeKeyAndVisible()
         
-        let service = DarkSkyWeatherService()
-        
-        service.getWeather(completion: { (weather) in
-            print(weather)
-            print(weather.latitude)
-            print(weather.longitude)
-        })
-        
         return true
+    }
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let service = DarkSkyWeatherService()
+        let chachedService = CachedWeatherService(underlyingService: service)
+        
+        chachedService.getWeather(completion: { weather in
+            completionHandler(.newData)
+            
+            let content = UNMutableNotificationContent()
+            content.title = "Don't forget"
+            content.body = "Buy some milk"
+            content.sound = UNNotificationSound.default()
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let identifier = "WeatherCloud.TemperatureWarning"
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            
+            
+            
+            if let currentTemp = weather.currently?.temperature {
+                if currentTemp < 15 {
+                    
+                } else if currentTemp > 25 {
+                    
+                } else {
+                    
+                }
+            }
+            
+        }, errorCompletion: {_ in
+            completionHandler(.failed)
+        })
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

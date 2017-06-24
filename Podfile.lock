@@ -1,10 +1,10 @@
 PODS:
+  - AwesomeCache (5.0)
   - SnapKit (3.2.0)
-  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - AwesomeCache (~> 5.0)
   - SnapKit (from `https://github.com/SnapKit/SnapKit.git`, branch `swift-4`)
-  - SwiftyJSON (= 3.1.4)
 
 EXTERNAL SOURCES:
   SnapKit:
@@ -17,9 +17,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SnapKit/SnapKit.git
 
 SPEC CHECKSUMS:
+  AwesomeCache: d8906955242173357caa0be0214d5e77dec32cc5
   SnapKit: c71c530b73cedd2a8b998098687001baff265086
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 03556dc1329ba0fac235273cd3a4e9295a1f613a
+PODFILE CHECKSUM: 8df6b1f5a53882521ef8c519047da83de2e6bc4f
 
 COCOAPODS: 1.2.1

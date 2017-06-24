@@ -15,6 +15,10 @@
 		443048161EFE5B2A00C924D9 /* WeatherForcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443048151EFE5B2A00C924D9 /* WeatherForcast.swift */; };
 		443048181EFE5DC800C924D9 /* DarkSkyWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443048171EFE5DC800C924D9 /* DarkSkyWeatherService.swift */; };
 		4430481A1EFE621000C924D9 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443048191EFE621000C924D9 /* ServiceError.swift */; };
+		4430481C1EFE686700C924D9 /* HourlyWeatherForcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430481B1EFE686700C924D9 /* HourlyWeatherForcast.swift */; };
+		4430481E1EFE688300C924D9 /* HourForcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430481D1EFE688300C924D9 /* HourForcast.swift */; };
+		443048201EFE6C6600C924D9 /* CachedWeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4430481F1EFE6C6600C924D9 /* CachedWeatherService.swift */; };
+		443048221EFE7A5B00C924D9 /* JsonCacheWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443048211EFE7A5B00C924D9 /* JsonCacheWrapper.swift */; };
 		6C59F3D51464C8075E897F3E /* Pods_WeatherCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1789C516F7F69D4FC072DD0D /* Pods_WeatherCloud.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +35,10 @@
 		443048151EFE5B2A00C924D9 /* WeatherForcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForcast.swift; sourceTree = "<group>"; };
 		443048171EFE5DC800C924D9 /* DarkSkyWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyWeatherService.swift; sourceTree = "<group>"; };
 		443048191EFE621000C924D9 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		4430481B1EFE686700C924D9 /* HourlyWeatherForcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeatherForcast.swift; sourceTree = "<group>"; };
+		4430481D1EFE688300C924D9 /* HourForcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourForcast.swift; sourceTree = "<group>"; };
+		4430481F1EFE6C6600C924D9 /* CachedWeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedWeatherService.swift; sourceTree = "<group>"; };
+		443048211EFE7A5B00C924D9 /* JsonCacheWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonCacheWrapper.swift; sourceTree = "<group>"; };
 		6619DFA76439AF5BF4102718 /* Pods-WeatherCloud.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherCloud.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherCloud/Pods-WeatherCloud.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +100,8 @@
 				443048121EFE5ACD00C924D9 /* WeatherService.swift */,
 				443048171EFE5DC800C924D9 /* DarkSkyWeatherService.swift */,
 				443048191EFE621000C924D9 /* ServiceError.swift */,
+				4430481F1EFE6C6600C924D9 /* CachedWeatherService.swift */,
+				443048211EFE7A5B00C924D9 /* JsonCacheWrapper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -100,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				443048151EFE5B2A00C924D9 /* WeatherForcast.swift */,
+				4430481B1EFE686700C924D9 /* HourlyWeatherForcast.swift */,
+				4430481D1EFE688300C924D9 /* HourForcast.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,6 +160,11 @@
 				TargetAttributes = {
 					443047FB1EFE547F00C924D9 = {
 						CreatedOnToolsVersion = 9.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -234,10 +251,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443048221EFE7A5B00C924D9 /* JsonCacheWrapper.swift in Sources */,
 				4430481A1EFE621000C924D9 /* ServiceError.swift in Sources */,
 				443048021EFE547F00C924D9 /* ViewController.swift in Sources */,
+				443048201EFE6C6600C924D9 /* CachedWeatherService.swift in Sources */,
 				443048161EFE5B2A00C924D9 /* WeatherForcast.swift in Sources */,
 				443048131EFE5ACD00C924D9 /* WeatherService.swift in Sources */,
+				4430481E1EFE688300C924D9 /* HourForcast.swift in Sources */,
+				4430481C1EFE686700C924D9 /* HourlyWeatherForcast.swift in Sources */,
 				443048181EFE5DC800C924D9 /* DarkSkyWeatherService.swift in Sources */,
 				443048001EFE547F00C924D9 /* AppDelegate.swift in Sources */,
 			);
