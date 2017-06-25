@@ -5,26 +5,16 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var notificationService: NotificationService = DefaultNotificationService()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         application.setMinimumBackgroundFetchInterval(1200)
-        
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-            if !granted {
-                print("push notifications not granted")
-            }
-            
-            if let error = error {
-                print(error)
-            }
-        }
-        
-        UNUserNotificationCenter.current
+        notificationService.authorize()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        let controller = UIViewController()
+        let controller = WeatherTableViewController()
         window?.rootViewController = controller;
         window?.makeKeyAndVisible()
         
@@ -38,26 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         chachedService.getWeather(completion: { weather in
             completionHandler(.newData)
             
-            let content = UNMutableNotificationContent()
-            content.title = "Don't forget"
-            content.body = "Buy some milk"
-            content.sound = UNNotificationSound.default()
-            
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-            let identifier = "WeatherCloud.TemperatureWarning"
-            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            
-            
-            
-            if let currentTemp = weather.currently?.temperature {
+            if let currentTemp = weather.currently?.temperatureCelcius {
                 if currentTemp < 15 {
-                    
+                    self.notificationService.showNotification(title: "It's freazing cold", body: "Maybe time to snuggle up in a warm blanket.")
                 } else if currentTemp > 25 {
-                    
-                } else {
-                    
-                }
+                    self.notificationService.showNotification(title: "It's hot hot hot", body: "Hopefully there are free milkshakes at the office.")
+                } 
             }
             
         }, errorCompletion: {_ in

@@ -6,21 +6,23 @@ class DarkSkyWeatherService: WeatherService {
     
     func getWeather(completion: @escaping (WeatherForcast) -> Void, errorCompletion: ((Error) -> Void)? = nil) {
         let session = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
             if let error = error {
-                errorCompletion?(error)
+                DispatchQueue.main.async { errorCompletion?(error) }
+                return
             }
             
             guard let data = data else {
-                errorCompletion?(ServiceError(description: "No data received"))
+                DispatchQueue.main.async { errorCompletion?(ServiceError(description: "No data received")) }
                 return
             }
             
             let decoder = JSONDecoder()
             
             if let weatherForcast = try? decoder.decode(WeatherForcast.self, from: data) {
-                completion(weatherForcast)
+                DispatchQueue.main.async { completion(weatherForcast) }
             } else {
-                errorCompletion?(ServiceError(description: "Could not decode data to WeatherForcast"))
+                DispatchQueue.main.async { errorCompletion?(ServiceError(description: "Could not decode data to WeatherForcast")) }
             }
         }
         
